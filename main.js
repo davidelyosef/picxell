@@ -17,12 +17,12 @@
         [2, 141, 82, 2], // dark green 12
         [2, 1, 9, 2] // black 13
     ];
+    const img = document.getElementById("scream");
     // document ready
     window.onload = function () {
         // get color of pixel in image
         let canvas = document.getElementById("myCanvas");
         let ctx = canvas.getContext("2d");
-        let img = document.getElementById("scream");
 
         // get height n width of element and set it to the canvas
         const height = img.clientHeight;
@@ -31,7 +31,7 @@
         canvas.height = height;
 
         // resize the image in order to 'pixelize' it
-        // code here...
+        // run pixelize.js file
 
         // draw canvas
         ctx.drawImage(img, 0, 0);
@@ -41,7 +41,6 @@
         // (x, y, width of the rectangular area you will copy,height of the rectangular area you will copy)
         const widthOfPixel = 15;
         for (let across = 0; across <= width; across = across + widthOfPixel) {
-            // rgba = `rgba(${data[0]},${data[1]}, ${data[2]}, ${data[3]})`;
 
             // if color is in some range change it to a color we have 
             for (let along = 0; along <= height; along = along + widthOfPixel) {
