@@ -29,14 +29,15 @@ function setPixelImage(across, along) {
         if (height < width) {
             canvas.width = height;
             canvas.height = height;
-        }
-        else {
+        } else {
             canvas.width = width;
             canvas.height = width;
         }
         canvas.style.objectPosition = 'right';
 
         ctx.drawImage(img, canvas.width / 2 - img.width / 2, canvas.height / 2 - img.height / 2 );
+        // ctx.drawImage(img, 0, 0);
+        // ctx.drawImage(img, 0, 0, img.width, img.height, 0, 0, canvas.width, canvas.height);
     } else if (across * 2 === along) { // 32 x 64
         canvas.width = width;
         canvas.height = width * 2;
