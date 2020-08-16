@@ -1,6 +1,12 @@
-img {
-    
+#image1 {
+    max-height: 50vh;
 }
 #canvas {
     max-width: 50%;
+    border: 10px solid #92929299;
+}
+.options .another-option {
+    margin: 10px;
+    max-width: 45%;
+    border: 10px solid #92929299;
 }
