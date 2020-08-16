@@ -18,6 +18,10 @@ function chooseFile() {
 
 function setPixelImage(across, along) {
 
+    if (img.src === '') {
+        img.src = displayedImage.src;
+    }
+
     const width = img.width;
     const height = img.height;
     across_image = across;
@@ -58,9 +62,6 @@ function setPixelImage(across, along) {
 
     const pixelArr = ctx.getImageData(0, 0, width, height).data;
     const widthOfPixel = canvas.width / across;
-
-    // console.log('number of pixels across: ' + canvas.width / widthOfPixel + '\n' + ' number of pixels along: ' + canvas.height / widthOfPixel);
-    // console.log('widthOfPixel: ', widthOfPixel);
 
     pixelize(height, width, widthOfPixel, pixelArr, ctx);
 
@@ -103,7 +104,6 @@ function newCanvas(image, x, y, boolean) {
 
     const pixelArr = newCtx.getImageData(0, 0, image.width, image.height).data;
     const widthOfPixel = newCanvas.width / across_image;
-    console.log(widthOfPixel);
 
     // pixelize
     pixelize(image.height, image.width, widthOfPixel, pixelArr, newCtx);
