@@ -4,29 +4,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Picxell</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body style="background-color: rgba(255, 255, 255, 255); text-align: center;">
 
-    <img src="assets/hero.jpg" alt="hero">
-
-    <p>Pixelize:</p>
-    <img src="assets/hero15x.jpg" alt="hero" id="scream">
-
-    <p>Canvas:</p>
-    <canvas id="myCanvas" style="padding: 15px;border:1px solid #d3d3d3;">
-        Your browser does not support the HTML5 canvas tag.
-    </canvas>
-
+    <input type="file" id="file" onchange="chooseFile()">
     <br>
+
+    <img src="assets/hero.jpg" id="image1">
     <br>
+
+    <button onclick="setPixelImage(32,32)">32 x 32</button>
+    <button onclick="setPixelImage(64,32)">64 x 32</button>
+    <button onclick="setPixelImage(32,64)">32 x 64</button>
+    <button onclick="setPixelImage(64,64)">64 x 64</button>
+
+    <h2 id="h2Canvas"></h2>
+    <canvas id="canvas"></canvas>
+
     <br>
     <br>
 
 </body>
 
 <!-- <script src="pixelize.js"></script> -->
-<script src="main.js"></script>
+<script src="pixelize.js"></script>
 
 </html>

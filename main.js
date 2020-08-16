@@ -20,6 +20,10 @@
     const img = document.getElementById("scream");
     // document ready
     window.onload = function () {
+        // pixel image
+        let img1 = new Image();
+        img1.src = document.getElementById("scream").src;
+        // document.getElementById("scream").remove();
         // get color of pixel in image
         let canvas = document.getElementById("myCanvas");
         let ctx = canvas.getContext("2d");
@@ -45,24 +49,29 @@
             // if color is in some range change it to a color we have 
             for (let along = 0; along <= height; along = along + widthOfPixel) {
                 let data = ctx.getImageData(across, along, 1, 1).data;
-                // if it's cyan
-                if (data[0] <= 157 && data[0] >= 54 &&
-                    data[1] >= 140 && data[1] <= 219 &&
-                    data[3] >= 163 && data[3] <= 255) {
-                    ctx.putImageData(chooseColor(6, widthOfPixel), across, along);
-                }
-                // if it's blue
-                else if (data[0] >= 70 && data[0] <= 140 &&
-                    data[1] >= 90 && data[1] <= 185 &&
-                    data[2] >= 160 && data[2] <= 200) {
-                    ctx.putImageData(chooseColor(7, widthOfPixel), across, along);
-                }
-                // if it's dark blue
-                else if (data[0] >= 0 && data[0] <= 22 &&
-                    data[1] >= 29 && data[1] <= 79 &&
-                    data[2] >= 56 && data[2] <= 115) {
-                    ctx.putImageData(chooseColor(8, widthOfPixel), across, along);
-                }
+                
+                let p = (x + (y * w)) * 4;
+                ctx.fillStyle = "rgba(" + pixelArr[p] + "," + pixelArr[p + 1] + "," + pixelArr[p + 2] + "," + pixelArr[p + 3] + ")";
+                ctx.fillRect(x, y, sample_size, sample_size);
+
+                // // if it's cyan
+                // if (data[0] <= 157 && data[0] >= 54 &&
+                //     data[1] >= 140 && data[1] <= 219 &&
+                //     data[3] >= 163 && data[3] <= 255) {
+                //     ctx.putImageData(chooseColor(6, widthOfPixel), across, along);
+                // }
+                // // if it's blue
+                // else if (data[0] >= 70 && data[0] <= 140 &&
+                //     data[1] >= 90 && data[1] <= 185 &&
+                //     data[2] >= 160 && data[2] <= 200) {
+                //     ctx.putImageData(chooseColor(7, widthOfPixel), across, along);
+                // }
+                // // if it's dark blue
+                // else if (data[0] >= 0 && data[0] <= 22 &&
+                //     data[1] >= 29 && data[1] <= 79 &&
+                //     data[2] >= 56 && data[2] <= 115) {
+                //     ctx.putImageData(chooseColor(8, widthOfPixel), across, along);
+                // }
 
             }
         }
