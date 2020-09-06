@@ -1,0 +1,48 @@
+{
+    "white": [0, 0, 100], 
+    "light_gray": [0, 0, 63],
+    "gray": [0, 0, 37],
+    "dark_gray": [0, 0, 24],
+    "black": [0, 0, 0],
+
+    "dark_red": [0, 100, 24],
+    "red": [0, 100, 33],
+    "light_red": [352, 75, 61],
+    "light_pink": [327, 96, 89],
+    "pink": [321, 51, 56],
+    "dark_pink": [319, 100, 30],
+    
+    "green": [73, 36, 25],
+    "green_olive": [158, 100, 16],
+    "green_cyan": [165, 100, 24],
+    "light_green": [135, 100, 32],
+    "green_yellow": [73, 82, 43],
+    "green_glow": [120, 100, 83],
+    
+    "dark_brown": [15, 80, 20],
+    "brown": [23, 44, 35],
+    "light_brown": [43, 36, 51],
+
+    "yellow_gray": [51, 17, 40],
+    "green_gray": [120, 13, 45],
+    "orange_gray": [32, 50, 56],
+    "orange": [31, 100, 64],
+    "dark_orange": [12, 81, 69],
+    "light_orange": [29, 66, 74],
+
+    "yellow": [60, 100, 50],
+    "shadow_yellow": [47, 75, 76],
+    "light_yellow": [60, 100, 79],
+    "lighter_orange": [22, 100, 89],
+
+    "purple": [258, 40, 42],
+    "dark_purple": [256, 70, 26],
+    "blue_gray": [218, 20, 39],
+    "dark_blue": [210, 100, 27],
+    "blue": [203, 100, 35],
+    "light_blue": [212, 88, 67],
+    "cyan": [187, 76, 59],
+    "light_cyan": [173, 100, 67],
+
+    "red_gray": [13, 58, 64]
+}

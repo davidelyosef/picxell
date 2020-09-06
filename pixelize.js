@@ -6,7 +6,7 @@ const ctx = canvas.getContext("2d");
 let across_image;
 let hslColors;
 
-fetch('assets/colors.json').then(data => data.json())
+fetch('assets/newColors.json').then(data => data.json())
     .then(json => hslColors = json);
 
 function chooseFile() {
@@ -85,64 +85,99 @@ function pixelize(height, width, widthOfPixel, pixelArr, context) {
 function detectColor(h, s, l) {
     let hsl;
     // black
-    if (l <= 10) {
-        hsl = hslColors.blackOrWhite.black;
-    }
+    if (l <= 10)
+        hsl = hslColors.black;
+    // dark gray
+    else if (l > 10 && l < 30 && s < 25)
+        hsl = hslColors.dark_gray;
+    // gray
+    else if (l >= 30 && l < 50 && s < 25)
+        hsl = hslColors.gray;
     // light gray
-    else if (l >= 80 && s < 25) {
-        hsl = hslColors.blackOrWhite.light_gray;
-    }
+    else if (l >= 50 && l < 80 && s < 25)
+        hsl = hslColors.light_gray;
     // white
-    else if (l >= 80 && s < 50) {
-        hsl = hslColors.blackOrWhite.white;
-    } else {
+    else if (l >= 80 && s < 50)
+        hsl = hslColors.white;
+    else {
         // red
         if (h >= 345 || h <= 15) {
-            if (l <= 20) hsl = hslColors.red.dark;
-            else if (l >= 70) hsl = hslColors.red.light;
-            else hsl = hslColors.red.normal;
+            if (l <= 30) hsl = hslColors.dark_red;
+            else if (l >= 70) hsl = hslColors.light_red;
+            else {
+                if (h > 10 && l >= 60) {
+                    if (s > 60) hsl = hslColors.dark_orange;
+                    else hsl = hslColors.red_gray;
+                }
+                else hsl = hslColors.red;
+            }
         }
-        // orange
+        // orange + brown
         else if (h > 15 && h <= 45) {
-            if (l <= 20) hsl = hslColors.orange.brown;
-            else if (l >= 70) hsl = hslColors.orange.light;
-            else hsl = hslColors.orange.normal;
+            if (l < 40) {
+                if (l < 30) hsl = hslColors.dark_brown;
+                else hsl = hslColors.brown;
+            } 
+            else if (l > 70) {
+                if (s > 70) hsl = hslColors.lighter_orange;
+                else hsl = hslColors.light_orange;
+            }
+            else {
+                if (s > 70) hsl = hslColors.orange;
+                else if (h >= 40 && s <= 40) hsl = hslColors.light_brown;
+                else hsl = hslColors.orange_gray;
+            }
         }
         // yellow
-        else if (h > 45 && h <= 75) {
-            if (l <= 20) hsl = hslColors.yellow.dark;
-            else if (l >= 70) hsl = hslColors.yellow.light;
-            else hsl = hslColors.yellow.normal;
+        else if (h > 45 && h <= 72) {
+            if (l <= 20) hsl = hslColors.light_brown;
+            else if (l >= 70) {
+                if (s > 90) hsl = hslColors.light_yellow;
+                else hsl = hslColors.shadow_yellow;
+            }
+            else {
+                if (s > 20) hsl = hslColors.yellow;
+                else hsl = hslColors.yellow_gray;
+            }
         }
         // green
-        else if (h > 75 && h <= 165) {
-            if (l <= 20) hsl = hslColors.green.dark;
-            else if (l >= 70) hsl = hslColors.green.light;
-            else hsl = hslColors.green.normal;
+        else if (h > 72 && h <= 165) {
+            if (h < 100) {
+                if (s > 50) hsl = hslColors.green_yellow;
+                else hsl = hslColors.green;
+            }
+            if (h >= 100 && h < 128) {
+                if (s > 20) hsl = hslColors.green_glow;
+                else hsl = hslColors.green_gray;
+            }
+            if (h >=128 && h < 147) hsl = hslColors.light_green;
+            if (h >= 147 && h < 162) hsl = hslColors.green_olive;
+            else hsl = hslColors.green_cyan;
         }
         // cyan
         else if (h > 165 && h <= 200) {
-            if (l <= 20) hsl = hslColors.cyan.dark;
-            else if (l >= 70) hsl = hslColors.cyan.light;
-            else hsl = hslColors.blue.cyan;
+            if (l >= 60) hsl = hslColors.light_cyan;
+            else hsl = hslColors.cyan;
         }
         // blue
         else if (h > 200 && h <= 260) {
-            if (l <= 20) hsl = hslColors.blue.dark; 
-            else if (l >= 60) hsl = hslColors.blue.light;
-            else hsl = hslColors.blue.normal;
+            if (l <= 27) hsl = hslColors.dark_blue;
+            else if (l >= 56) hsl = hslColors.light_blue;
+            else {
+                if (s > 50) hsl = hslColors.blue;
+                else hsl = hslColors.blue_gray;
+            }
         }
         // purple
         else if (h > 260 && h <= 280) {
-            if (l <= 20) hsl = hslColors.purple.dark;
-            else if (l >= 70) hsl = hslColors.purple.light;
-            else hsl = hslColors.purple.normal;
+            if (l <= 35) hsl = hslColors.dark_purple;
+            else hsl = hslColors.purple;
         }
         // pink
         else if (h > 280 && h <= 344) {
-            if (l <= 20) hsl = hslColors.pink.dark;
-            else if (l >= 70) hsl = hslColors.pink.light;
-            else hsl = hslColors.pink.normal;
+            if (l <= 20) hsl = hslColors.dark_pink;
+            else if (l >= 70) hsl = hslColors.light_pink;
+            else hsl = hslColors.pink;
         }
     }
     return "hsl(" + hsl[0] + "," + hsl[1] + "%," + hsl[2] + "%)";

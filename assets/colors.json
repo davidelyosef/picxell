@@ -1,12 +1,14 @@
 {
     "blackOrWhite": {
-        "white": [0, 0, 100],
-        "light_gray": [0, 0, 90],
+        "white": [0, 0, 100], 
+        "light_gray": [0, 0, 63],
+        "gray": [0, 0, 37],
+        "dark_gray": [0, 0, 24],
         "black": [0, 0, 0]
     },
     "red": {
         "normal": [0, 100, 50],
-        "dark": [0, 100, 20],
+        "dark": [15, 80, 20],
         "light": [0, 100, 70]
     },
     "orange": {

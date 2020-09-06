@@ -10,3 +10,7 @@
     max-width: 45%;
     border: 10px solid #92929299;
 }
+#alsoLike {
+    letter-spacing: 3px;
+    text-transform: uppercase;
+}
